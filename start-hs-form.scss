@@ -1,0 +1,161 @@
+// forms
+form,
+fieldset {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+
+	border: 1px solid #000;
+	background: #ccc;
+	padding: 15px;
+	overflow: hidden;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='url'],
+input[type='date'],
+textarea {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+
+	box-sizing: border-box;
+	width: 100% !important;
+	border: 1px solid #999;
+	padding: 10px;
+
+	// &:hover {
+
+	// }
+
+	&:focus {
+		border-color: #000;
+	}
+
+	@include placeholder {
+		color: inherit;
+	}
+}
+
+label {
+	display: block;
+	line-height: 1;
+	margin-bottom: 5px;
+	
+	span {
+		display: inline-block;
+	}
+
+	.hs-form-required {
+		color: red;
+	}
+}
+
+select {
+	-webkit-border-radius: 0;
+	width: 100% !important;
+}
+
+textarea {
+	resize: vertical;
+	vertical-align: top;
+	min-height: 75px;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	cursor: pointer;
+}
+
+form[id^="hsForm_"].hs-form {
+	--_columns-gap: 20px;
+	--_rows-gap: 30px;
+
+	& > * {
+		width: 100%;
+		max-width: none;
+		margin-bottom: 30px;
+	}
+
+	fieldset[class^="form-columns"]:not(:has(.legal-consent-container)) {
+		width: calc(100% + var(--_columns-gap));
+		margin: 0 calc(0px - (var(--_columns-gap) / 2)) var(--_rows-gap);
+	}
+
+	fieldset:not(.form-columns-1) {
+		
+		@include media ('<phone') {
+			display: flex;
+			flex-direction: column;
+			gap: var(--_rows-gap) 0;
+		}
+
+		& > * {
+
+			@include media ('<phone') {
+				width: 100%;
+			}
+		}
+	}
+
+	.hs-form-field:not(.hs-recaptcha) {
+		padding: 0 calc(var(--_columns-gap) / 2);
+	}
+
+	.input {
+		margin: 0 !important;
+	}
+
+	// legal
+	.legal-consent-container {
+
+		& > *:not(:last-child) {
+			margin-bottom: calc(var(--_rows-gap) / 2);
+		}
+
+		.hs-form-field {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	// checkbox
+	ul[role="checkbox"],
+	ul.inputs-list {
+		@extend %listreset;
+
+		li {
+			
+			& + li {
+				margin-top: calc(var(--_rows-gap) / 4);
+			}
+		}
+
+		.hs-form-booleancheckbox-display,
+		.hs-form-checkbox-display,
+		.hs-form-radio-display {
+			display: flex;
+			align-items: flex-start;
+			gap: 0 calc(var(--_rows-gap) / 4);
+			margin: 0;
+			cursor: pointer;
+
+			span {
+				margin: 0;
+			}
+		}
+	}
+
+	// submit
+	.hs-submit {
+		margin: 0 !important;
+	}
+}
