@@ -87,29 +87,42 @@ form[id^="hsForm_"].hs-form {
 		max-width: none;
 	}
 
-	fieldset[class^="form-columns"]:not(:has(.legal-consent-container, [style="display: none;"])) {
-		width: calc(100% + var(--_columns-gap));
-		margin: 0 calc(0px - (var(--_columns-gap) / 2)) var(--_rows-gap);
-	}
+	fieldset {
 
-	fieldset:not(.form-columns-1) {
-		
-		@include media ('<phone') {
-			display: flex;
-			flex-direction: column;
-			gap: var(--_rows-gap) 0;
+		&[class^="form-columns"]:not(:has(.legal-consent-container, [style="display: none;"])) {
+			width: calc(100% + var(--_columns-gap));
+			margin: 0 calc(0px - (var(--_columns-gap) / 2)) var(--_rows-gap);
 		}
 
-		& > * {
-
+		&:not(.form-columns-1) {
+		
 			@include media ('<phone') {
-				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: var(--_rows-gap) 0;
+			}
+
+			& > * {
+
+				@include media ('<phone') {
+					width: 100%;
+				}
+			}
+		}
+
+		.hs-form-field {
+
+			&:not(.hs-recaptcha) {
+				padding: 0 calc(var(--_columns-gap) / 2);
 			}
 		}
 	}
 
-	.hs-form-field:not(.hs-recaptcha) {
-		padding: 0 calc(var(--_columns-gap) / 2);
+	.hs-form-field {
+		
+		& > label {
+			display: none !important;
+		}
 	}
 
 	.input {
