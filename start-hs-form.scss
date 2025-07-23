@@ -131,6 +131,7 @@ form[id^="hsForm_"].hs-form {
 
 	// legal
 	.legal-consent-container {
+		font-size: 12px;
 
 		& > *:not(:last-child) {
 			margin-bottom: calc(var(--_rows-gap) / 2);
