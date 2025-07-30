@@ -89,7 +89,7 @@ form[id^="hsForm_"].hs-form {
 
 	fieldset {
 
-		&[class^="form-columns"]:not(:has(.legal-consent-container, [style="display: none;"])) {
+		&[class^="form-columns"]:not(:has([style="display: none;"])) {
 			width: calc(100% + var(--_columns-gap));
 			margin: 0 calc(0px - (var(--_columns-gap) / 2)) var(--_rows-gap);
 		}
@@ -110,7 +110,8 @@ form[id^="hsForm_"].hs-form {
 			}
 		}
 
-		.hs-form-field {
+		.hs-form-field,
+		.legal-consent-container {
 
 			&:not(.hs-recaptcha) {
 				padding: 0 calc(var(--_columns-gap) / 2);
