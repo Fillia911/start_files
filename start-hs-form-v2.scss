@@ -12,11 +12,13 @@
 		margin: 0;
 		padding: 0;
 		border-style: none;
+		font-family: $font-sans-serif;
 		font-size: 16px;
 		line-height: 1;
 		color: $black;
 
 		* {
+			font-family: inherit;
 			color: inherit;
 		}
 
