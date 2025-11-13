@@ -48,9 +48,9 @@
 		border: 1px solid var(--hs_form_border-color);
 		padding: 10px;
 
-		// &:hover {
-
-		// }
+		&:hover {
+			box-shadow: none;
+		}
 
 		&:focus {
 			border-color: var(--hs_form_text-color);
