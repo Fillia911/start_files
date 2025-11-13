@@ -29,6 +29,13 @@
 		padding: 15px;
 	}
 
+	fieldset {
+		
+		&:has(> [style="display: none;"]) {
+			margin: 0;
+		}
+	}
+
 	input[type='text'],
 	input[type='tel'],
 	input[type='email'],
