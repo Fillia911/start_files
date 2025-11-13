@@ -122,7 +122,7 @@
 	.hsfc-FieldLabel {
 		display: block;
 		line-height: 1;
-		margin-bottom: 5px !important;
+		margin: 0 0 5px !important;
 
 		span[class] {
 			color: var(--hs_form_error-color);
@@ -134,9 +134,12 @@
 	.legal-consent-container {
 		font-size: 12px;
 
-		& > *:not(:last-child),
-		& > .hsfc-Row {
+		& > * {
 			margin-bottom: calc(var(--hs_form_rows-gap) / 2) !important;
+
+			&:last-child {
+				margin-bottom: 0 !important;
+			}
 		}
 	}
 
@@ -155,24 +158,24 @@
 		}
 	}
 
-	// checkbox
+	// checkbox / radio
 	.hsfc-CheckboxFieldGroup__Options,
-	ul.inputs-list:has([role="checkbox"]) {
-		@extend %listreset;
-
-		background: var(--hs_form_border-color);
-	}
-
-	// radio
+	ul.inputs-list:has([role="checkbox"]),
 	.hsfc-RadioFieldGroup__Options,
-	ul.inputs-list:has([role="radio"]) {
-		--_radio-size: 10px;
+	ul.inputs-list:has([role="radio"]),
+	div[class*="hs_LEGAL_CONSENT"]ul.inputs-list,
+	.hsfc-CheckboxField {
+		--_input-size: 10px;
 
 		@extend %listreset;
-
+		
 		& > * {
 			margin-top: 15px;
 			margin-bottom: 0 !important;
+		}
+
+		p {
+			margin: 0;
 		}
 
 		label {
@@ -180,30 +183,52 @@
 			align-items: center;
 			gap: 0 15px;
 			margin-bottom: 0 !important;
+			font-weight: 400;
+			cursor: pointer;
 		}
 
+		input[type="checkbox"],
 		input[type="radio"] {
-			flex-shrink: 0;
 			position: relative;
 			appearance: none;
-			background: none;
-			border-radius: 50%;
+			background: unset;
 			border: 1px solid var(--hs_form_border-color);
+			border-radius: 50%;
+			box-shadow: none;
 			box-sizing: border-box;
-			padding: var(--_radio-size);
+			padding: var(--_input-size);
 
 			&:checked {
 
 				&:after {
 					content: '';
 					display: block;
-					background: var(--hs_form_border-color);
+					background: var(--hs_form_text-color);
 					position: absolute;
 					inset: 0;
 					mask-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23253342%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%226%22%2F%3E%3C%2Fsvg%3E');
 					mask-repeat: no-repeat;
 					mask-position: center;
 					mask-size: 100%;
+				}
+			}
+		}
+	}
+
+	// radio
+	.hsfc-CheckboxFieldGroup__Options,
+	ul.inputs-list:has([role="checkbox"]),
+	div[class*="hs_LEGAL_CONSENT"]ul.inputs-list,
+	.hsfc-CheckboxField {
+
+		input[type="checkbox"] {
+			border-radius: 0;
+
+			&:checked {
+
+				&:after {
+					inset: 15%;
+					mask-image: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2015%2016%22%20fill%3D%22%23253342%22%3E%3Cpath%20d%3D%22M1.013%208.11c0-.223.078-.412.234-.568l1.14-1.14c.155-.155.345-.233.568-.233s.413.077.57.233l2.46%202.47%205.492-5.5c.156-.156.346-.234.568-.234.224%200%20.413.077.57.233l1.138%201.14c.156.155.234.345.234.568%200%20.224-.078.414-.234.57l-6.06%206.06-1.14%201.14c-.155.155-.345.233-.568.233s-.413-.078-.57-.234l-1.138-1.14-3.03-3.03c-.156-.156-.234-.346-.234-.57z%22%2F%3E%3C%2Fsvg%3E');
 				}
 			}
 		}
