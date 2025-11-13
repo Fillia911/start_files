@@ -181,7 +181,7 @@
 }
 
 // old form
-.hbspt-form[id^="hbspt-form-"] {
+div[id^="hs_form_"][data-hs-forms-root="true"] {
 	@extend .form-styles;
 
 	.hs-form {
