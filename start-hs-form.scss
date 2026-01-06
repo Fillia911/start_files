@@ -159,9 +159,14 @@
 
 	.legal-consent-container {
 
-		.hs-form-field {
+		.hs-form-field,
+		.hs-form-booleancheckbox {
 			padding: 0;
-			margin: 0;
+			margin: 0 !important;
+
+			span {
+				margin: 0;
+			}
 		}
 	}
 
