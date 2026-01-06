@@ -7,6 +7,14 @@
 	--hs_form_error-color: #f00;
 }
 
+//title
+.form-title {
+
+	&:empty {
+		display: none !important;
+	}
+}
+
 .form-styles {
 	// forms
 	form,
