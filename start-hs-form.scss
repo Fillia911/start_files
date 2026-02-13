@@ -125,13 +125,16 @@
 		}
 		
 		// label
-		.hs-form-field > label,
-		.hsfc-FieldLabel {
-			display: block;
-			margin: 0 0 5px;
+		.hs-form-field,
+		.hsfc-Row > div {
 			
-			span[class] {
-				color: var(--error-color);
+			& > label {
+				display: block;
+				margin: 0 0 5px;
+				
+				span[class] {
+					color: var(--error-color);
+				}
 			}
 		}
 		
@@ -287,13 +290,11 @@
 	// old form
 	form.hs-form {
 		
-		& > fieldset {
+		& > fieldset,
+		& > .hs-form-field {
+			width: 100%;
 			max-width: 100%;
 			margin-bottom: var(--rows-gap);
-			
-			.hs-form-field {
-				width: 100%;
-			}
 		}
 		
 		& > * {
